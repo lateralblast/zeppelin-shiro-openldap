@@ -249,11 +249,11 @@ Make sure you include groups in roles in urls section in shiro.ini, e.g.:
 # Allow all authenticated users to restart interpreters on a notebook page.
 # Comment out the following line if you would like to authorize only admin users to restart interpreters.
 #/api/interpreter/setting/restart/** = authc
-/api/interpreter/** = authc, roles[zepadmins]
-/api/notebook-repositories/** = authc, roles[zepadmins]
-/api/configurations/** = authc, roles[zepadmins]
-/api/credential/** = authc, roles[zepadmins]
-/api/admin/** = authc, roles[zepadmins]
+/api/interpreter/** = authc, roles[admin]
+/api/notebook-repositories/** = authc, roles[admin]
+/api/configurations/** = authc, roles[admin]
+/api/credential/** = authc, roles[admin]
+/api/admin/** = authc, roles[admin]
 #/** = anon
 /** = authc
 ```
