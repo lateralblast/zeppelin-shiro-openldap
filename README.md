@@ -164,7 +164,7 @@ cn: zepusers
 gidNumber: 2001
 memberUid: zepuser
 
-dn: cn=zepausers,ou=zepgroups,dc=home,dc=arpa
+dn: cn=zepusers,ou=zepgroups,dc=home,dc=arpa
 objectClass: posixGroup
 cn: zepadmins
 gidNumber: 2002
