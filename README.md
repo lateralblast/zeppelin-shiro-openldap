@@ -99,9 +99,9 @@ dn: ou=zepusers,dc=home,dc=arpa
 objectClass: organizationalUnit
 ou: zepusers
 
-dn: ou=zepadmins,dc=home,dc=arpa
+dn: ou=zepgroups,dc=home,dc=arpa
 objectClass: organizationalUnit
-ou: zepadmins
+ou: zepgroups
 ```
 
 Import entries for groups:
@@ -135,7 +135,7 @@ uidNumber: 1001
 gidNumber: 1001
 homeDirectory: /home/zepuser
 
-dn: uid=zepadmin,ou=zepadmins,dc=home,dc=arpa
+dn: uid=zepadmin,ou=zepusers,dc=home,dc=arpa
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
@@ -158,15 +158,15 @@ Create group membership entries:
 
 ```
 $ cat ldapgroups.ldif
-dn: cn=zepusers,ou=groups,dc=home,dc=arpa
+dn: cn=zepusers,ou=zepgroups,dc=home,dc=arpa
 objectClass: posixGroup
-cn: zepuser
+cn: zepusers
 gidNumber: 2001
 memberUid: zepuser
 
-dn: cn=zepusers,ou=groups,dc=home,dc=arpa
+dn: cn=zepadmins,ou=zepgroups,dc=home,dc=arpa
 objectClass: posixGroup
-cn: zepadmin
+cn: zepadmins
 gidNumber: 2002
 memberUid: zepadmin
 ```
