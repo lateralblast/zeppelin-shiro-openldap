@@ -164,7 +164,7 @@ cn: zepusers
 gidNumber: 2001
 memberUid: zepuser
 
-dn: cn=zepadmins,ou=zepgroups,dc=home,dc=arpa
+dn: cn=zepausers,ou=zepgroups,dc=home,dc=arpa
 objectClass: posixGroup
 cn: zepadmins
 gidNumber: 2002
@@ -210,18 +210,18 @@ Add LDAP entries to main section in shiro.ini, e.g.:
 ```
 [main]
 ldapRealm = org.apache.zeppelin.realm.LdapRealm
-ldapRealm.userDnTemplate = uid={0},ou=people,dc=home,dc=arpa
+ldapRealm.userDnTemplate = uid={0},ou=zepusers,dc=home,dc=arpa
 ldapRealm.searchBase = dc=home,dc=arpa
-ldapRealm.userSearchBase = ou=people,dc=home,dc=arpa
-ldapRealm.groupSearchBase = ou=groups,dc=home,dc=arpa
+ldapRealm.userSearchBase = ou=zepusers,dc=home,dc=arpa
+ldapRealm.groupSearchBase = ou=zepgroups,dc=home,dc=arpa
 ldapRealm.contextFactory.url = ldap://127.0.0.1:389
 ldapRealm.contextFactory.authenticationMechanism = simple
 ldapRealm.userObjectClass = posixAccount
 ldapRealm.groupObjectClass = posixGroup
 ldapRealm.authorizationEnabled = true
 ldapRealm.memberAttribute = memberUid
-ldapRealm.memberAttributeValueTemplate=uid={0},ou=people,dc=home,dc=arpa
-ldapRealm.rolesByGroup = zepadmin:admin,zepuser:user
+ldapRealm.memberAttributeValueTemplate=uid={0},ou=zepusers,dc=home,dc=arpa
+ldapRealm.rolesByGroup = zepadmins:admin,zepusers:user
 ldapRealm.allowedRolesForAuthentication = admin,user
 ldapRealm.userSearchAttributeName = uid
 securityManager.realms = $ldapRealm
