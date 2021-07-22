@@ -52,7 +52,7 @@ Instructions
 Set hostname:
 
 ```
-$ sudo hostnamectl ubuntu.home.arpa
+$ sudo hostnamectl set-hostname ubuntu.home.arpa
 ```
 
 Create users and groups if users need the ability to manually upload files:
